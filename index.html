@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- <base href="/"> -->
+		<base href="" />
+		<title>Raziel Dev</title>
+
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="Description" content="Raziel Dev" />
+
+		<link rel="manifest" href="manifest.json" />
+
+		<script src="https://code.iconify.design/1/1.0.3/iconify.min.js"></script>
+
+		<script type="text/javascript" src="inc/rzl/js/core.js"></script>
+		<script type="text/javascript" src="inc/rzl/js/ui.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="inc/rzl/css/core.css" />
+
+		<script type="text/javascript" src="index.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="index.css" />
+
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="assets/favicons/apple-touch-icon.png?v=NmP4yQwvY7"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="assets/favicons/favicon-32x32.png?v=NmP4yQwvY7"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="assets/favicons/favicon-16x16.png?v=NmP4yQwvY7"
+		/>
+		<link
+			rel="mask-icon"
+			href="assets/favicons/safari-pinned-tab.svg?v=NmP4yQwvY7"
+			color="#00aa00"
+		/>
+		<link rel="shortcut icon" href="assets/favicons/favicon.ico?v=NmP4yQwvY7" />
+		<meta name="msapplication-TileColor" content="#000000" />
+		<meta name="theme-color" content="#ffffff" />
+
+		<link
+			href="https://fonts.googleapis.com/css?family=Iceberg|Source+Code+Pro&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body class="rzl-flex-col" onload="raziel.init()">
+		<header>
+			<div id="menubar" class="container rzl-flex-row">
+				<div class="rzl-flex-row">
+					<a onclick="raziel.draw('home')">Raziel</a>
+				</div>
+				<nav class="rzl-flex-row">
+					<a onclick="raziel.draw('rzl')">Rzl</a>
+					<a onclick="raziel.draw('portfolio')">Portfolio</a>
+					<a onclick="raziel.draw('about')">About</a>
+					<a onclick="raziel.draw('contact')">Contact</a>
+				</nav>
+			</div>
+		</header>
+		<section id="view"></section>
+		<footer>
+			<div class="container rzl-flex-row">
+				<div class="rzl-flex-col">
+					<span>Copyright © 2019 Elliot Thomas</span>
+				</div>
+				<div id="sitemap" class="rzl-flex-row">
+					<div class="rzl-flex-col">
+						<span>Rzl</span>
+						<a href="https://github.com/raziel2244/rzl">Repo</a>
+						<a href="https://docs.raziel.dev">Docs</a>
+						<a href="https://gitter.im/raziel2244/rzl">Gitter</a>
+					</div>
+					<div class="rzl-flex-col">
+						<span>Portfolio</span>
+						<a href="https://nordanner.raziel.dev">Nordanner</a>
+					</div>
+					<div class="rzl-flex-col">
+						<span>Community</span>
+						<a href="https://github.com/raziel2244">GitHub</a>
+						<a href="https://gitter.im/raziel2244">Gitter</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>

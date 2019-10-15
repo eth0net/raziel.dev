@@ -1,0 +1,3 @@
+[submodule "rzl"]
+	path = inc/rzl
+	url = git@github.com:raziel2244/rzl.git

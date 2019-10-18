@@ -19,7 +19,7 @@ raziel = {
     document.location.hash = target === "home" ? "/" : "/" + target;
     this.state.active = target;
     new rzl.UI(this.layouts[target], { pnode: "view" });
-  },
+	},
 
   layouts: {
     home: {
@@ -387,10 +387,24 @@ raziel = {
             class: "rzl-flex-col",
             children: [
               { tag: "h1", content: "Portfolio" },
-              { tag: "p", content: "Some of my work" },
-              { tag: "p", content: "<br>Under construction" }
+              { tag: "p", content: "Some of my work" }
             ]
-          }
+					},
+					{
+						id: "projects",
+						class: "rzl-flex-row",
+						children: [
+							{
+								tag: "a",
+								class: "card rzl-flex-col",
+								props: { href: "https://nordanner.raziel.dev" },
+								children: [
+									{ tag: "h2", content: "Nordanner Tools" },
+									{ tag: "img", props: { src: "./assets/nordanner.png" } }
+								]
+							},
+						]
+					}
         ]
       }
     },

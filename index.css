@@ -164,6 +164,28 @@ body > header {
 	background-color: #537;
 }
 
+#portfolio-root #projects {
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+#portfolio-root #projects > .card {
+	border: none;
+	padding: 1rem;
+}
+
+#portfolio-root #projects > .card > * {
+	margin: 0;
+}
+
+#portfolio-root #projects > .card > *:not(:last-child) {
+	margin-bottom: 0.5rem;
+}
+
+#portfolio-root #projects > .card > img {
+	width: 100%;
+}
+
 #contact-root #methods {
 	flex-wrap: wrap;
 }
@@ -200,7 +222,8 @@ body > footer > .container > div > div > span {
 
 @media only screen and (min-width: 540px) {
 
-	#home-root #navcards > .pair > .card {
+	#home-root #navcards > .pair > .card,
+	#portfolio-root #projects > .card {
 		width: calc(50% - 2rem);
 	}
 
@@ -208,7 +231,7 @@ body > footer > .container > div > div > span {
 
 @media only screen and (min-width: 768px) {
 
-	#menubar > nav, #home-root #navcards {
+	#menubar > nav {
 		justify-content: space-around;
 	}
 

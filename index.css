@@ -5,6 +5,25 @@
 	font-family: "Source Code Pro", monospace;
 }
 
+.card {
+	align-items: center;
+	border: 1px solid white;
+	border-radius: 1rem;
+	justify-content: space-between;
+	margin: 1rem;
+	padding: 2rem;
+	width: 100%;
+}
+
+.card > .iconify {
+	flex-shrink: 0;
+	font-size: 3rem;
+}
+
+.card > div > h2 {
+	margin-bottom: 0.25rem;
+}
+
 .container {
 	margin: auto;
 	max-width: 1080px;
@@ -16,9 +35,24 @@ a {
 	color: white;
 }
 
-a:hover {
-	color: lime;
+a:hover, .link:hover {
+	background-color: #102 !important;
+	border-color: #ebf;
+	border-color: #daf;
+	border-color: #c9f;
+	color: #ebf;
+	color: #daf;
+	color: #c9f;
 	cursor: pointer;
+	transition: 0.3s;
+}
+
+hr {
+	border: none;
+	border-bottom: 1px solid #555;
+	margin-left: auto;
+	margin-right: auto;
+	width: calc(100% - 2rem);
 }
 
 body {
@@ -37,106 +71,132 @@ body > header {
 	z-index: 99;
 }
 
-body > header > div#menubar {
+#menubar {
 	flex-wrap: wrap;
-	justify-content: space-around;
 	height: min-content;
+	justify-content: space-around;
 }
 
-body > header > div#menubar > div {
+#menubar > div {
 	justify-content: center;
 }
 
-body > header > div#menubar > nav {
+#menubar > nav {
 	justify-content: space-between;
 	overflow-x: auto;
 }
 
-body > header > div#menubar > * > * {
+#menubar > * > * {
 	padding: 1rem;
 }
 
-section#view {
+#view {
 	flex-grow: 1;
 }
 
-div.ui-root > div.ui-view > * {
-	margin: 2rem 0;
+.ui-root > .ui-view > * {
+	margin-bottom: 2rem;
 }
 
-div.ui-root > div.ui-view > div#banner {
+#banner {
 	align-items: center;
 	font-size: 1.25rem;
+	margin: 4rem 0;
 }
 
-div.ui-root > div.ui-view > div#banner > h1 {
+#banner > h1 {
 	font-family: "Iceberg", sans-serif;
 	font-size: 3rem;
 }
 
-div.ui-root > div.ui-view > div#cards {
-	flex-wrap: wrap;
+#home-root #navcards {
 	justify-content: space-around;
 }
 
-div.ui-root > div.ui-view > div#cards > div.pair {
+#home-root #navcards > .pair {
 	flex-wrap: wrap;
 }
 
-div.ui-root > div.ui-view > div#cards > div.pair > div.card {
-	align-items: center;
-	border: 1px solid white;
-	border-radius: 1rem;
-	justify-content: space-between;
-	margin: 1rem;
-	padding: 2rem;
-	width: 100%;
-}
-
-div.ui-root > div.ui-view > div#cards > div.pair > div.card:hover {
-	border-color: lime;
-	color: lime;
-	cursor: pointer;
-}
-
-
-div.ui-root > div.ui-view > div#cards > div.pair > div.card > div {
+.card > *:not(:last-child) {
 	margin-right: 1rem;
 }
 
-div.ui-root > div.ui-view > div#cards > div.pair > div.card > svg.iconify {
-	flex-shrink: 0;
-	font-size: 3rem;
+#rzl-root #overview {
+	flex-wrap: wrap;
+}
+
+#rzl-root #overview > .card {
+	border: none;
+	padding: 1rem;
+}
+
+#rzl-root #examples > .example {
+	margin: 1rem;
+}
+
+#rzl-root #examples > .example > *:not(:last-child) {
+	margin-bottom: 0.25rem;
+}
+
+#rzl-root #examples > .example code {
+	border: 1px solid #555;
+	display: block;
+	overflow-x: auto;
+	padding: 1.5rem;
+}
+
+#rzl-root #examples > .example code .code-comment {
+	color: #777;
+}
+
+#rzl-root #next > h2 {
+	margin: auto;
+	margin-bottom: 0.5rem;
+}
+
+#rzl-root #next > #steps {
+	justify-content: center;
+}
+
+#rzl-root #next > #steps > * {
+	margin: 0 0.5rem;
+	padding: 1rem;
+	background-color: #537;
 }
 
 body > footer {
 	background-color: #242427;
-	width: 100;
-	white-space: nowrap;
+	width: 100%;
 	font-size: 0.75rem;
 }
 
-body > footer > div.container {
+body > footer > .container {
 	flex-wrap: wrap;
 	justify-content: space-around;
+	padding-top: 1rem;
 }
 
-body > footer > div > * > * {
-	margin: 1.5rem;
-}
-
-body > footer > div > div#sitemap {
+body > footer > .container > div {
 	align-items: flex-start;
+	flex-wrap: wrap;
+	margin-bottom: 1rem;
 }
 
-body > footer > div > div#sitemap > div > span {
-	color: grey;
+body > footer > .container > div > * {
+	margin: 0 1rem;
+}
+
+body > footer > .container > div > div > span {
 	padding-bottom: 0.25rem;
+}
+
+#sitemap > div > span {
+	color: grey;
 }
 
 @media only screen and (min-width: 540px) {
 
-	div.ui-root > div.ui-view > div#cards > div.pair > div.card {
+	#home-root #navcards > .pair > .card {
 		width: calc(50% - 2rem);
 	}
 
@@ -144,12 +204,16 @@ body > footer > div > div#sitemap > div > span {
 
 @media only screen and (min-width: 768px) {
 
-	body > header > div#menubar > nav {
+	#menubar > nav, #home-root #navcards {
 		justify-content: space-around;
 	}
 
-	div.ui-root > div.ui-view > div#cards {
-		justify-content: space-around;
+}
+
+@media only screen and (min-width: 1024px) {
+
+	#rzl-root #overview > .card {
+		width: calc(33% - 2rem);
 	}
 
 }

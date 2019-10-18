@@ -390,6 +390,7 @@ raziel = {
               { tag: "p", content: "Some of my work" }
             ]
 					},
+					{ tag: "hr" },
 					{
 						id: "projects",
 						class: "rzl-flex-row",
@@ -422,7 +423,9 @@ raziel = {
               { tag: "p", content: "All about me" },
               { tag: "p", content: "<br>Under construction" }
             ]
-          }
+					},
+					{ tag: "hr" },
+					{}
         ]
       }
     },

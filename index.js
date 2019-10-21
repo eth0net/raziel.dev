@@ -1,7 +1,8 @@
 raziel = {
   state: {},
-
+  
   init: function() {
+    console.log("init called");
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker
         .register("sw.js")
@@ -9,17 +10,37 @@ raziel = {
         .catch(e => console.log("Failed to register service worker"));
     }
 
-    let target = document.location.hash.split("/")[1];
-    if (target === "") target = "home";
-    this.draw(target);
+    // navigate to target using current hash, if any
+    this.navigate();
+
+    // handle future hash changes, including back button
+    onhashchange = () => this.navigate();
   },
 
-  // draw the UI
-  draw: function(target = "home") {
-    document.location.hash = target === "home" ? "/" : "/" + target;
+  // navigate to the given target
+  navigate: function(target) {
+
+    // get the path from location.hash, if set
+    const hash = document.location.hash.split("/")[1];
+
+    // use target if provided, else hash or "home"
+    target = target ? target : hash ? hash : "home";
+
+    // if no view is found for that path throw error 
+    if (!raziel.layouts[target]) {
+      throw new Error(`No view found for route: ${target}`);
+    }
+
+    // update hash location and state with new target
+    document.location.hash = target === "home" ? "/" : `/${target}`;
     this.state.active = target;
-    new rzl.UI(this.layouts[target], { pnode: "view" });
-	},
+
+    // draw the appropriate interface
+    new rzl.UI(raziel.layouts[target], { pnode: "view" });
+    
+    // return the new route name
+    return target;
+  },
 
   layouts: {
     home: {
@@ -55,7 +76,7 @@ raziel = {
                       },
                       { class: "iconify icon:whh:galaxyalt" }
                     ],
-                    events: { click: "raziel.draw.bind(raziel,'rzl')" }
+                    events: { click: "raziel.navigate.bind(raziel,'rzl')" }
                   },
                   {
                     class: "card link rzl-flex-row",
@@ -69,7 +90,7 @@ raziel = {
                       },
                       { class: "iconify icon:jam:folder" }
                     ],
-                    events: { click: "raziel.draw.bind(raziel,'portfolio')" }
+                    events: { click: "raziel.navigate.bind(raziel,'portfolio')" }
                   }
                 ]
               },
@@ -88,7 +109,7 @@ raziel = {
                       },
                       { class: "iconify icon:uil:user-square" }
                     ],
-                    events: { click: "raziel.draw.bind(raziel,'about')" }
+                    events: { click: "raziel.navigate.bind(raziel,'about')" }
                   },
                   {
                     class: "card link rzl-flex-row",
@@ -102,7 +123,7 @@ raziel = {
                       },
                       { class: "iconify icon:jam:messages" }
                     ],
-                    events: { click: "raziel.draw.bind(raziel,'contact')" }
+                    events: { click: "raziel.navigate.bind(raziel,'contact')" }
                   }
                 ]
               }

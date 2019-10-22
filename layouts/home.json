@@ -1,0 +1,91 @@
+{
+  "meta": { "name": "home", "domain": "raziel" },
+  "view": {
+    "class": "ui-view container rzl-flex-col",
+    "children": [
+      {
+        "id": "banner",
+        "class": "rzl-flex-col",
+        "children": [
+          { "tag": "h1", "content": "Raziel" },
+          { "tag": "p", "content": "Web Developer" }
+        ]
+      },
+      { "tag": "hr" },
+      {
+        "id": "navcards",
+        "class": "rzl-flex-col",
+        "children": [
+          {
+            "class": "pair rzl-flex-row",
+            "children": [
+              {
+                "class": "card link rzl-flex-row",
+                "children": [
+                  {
+                    "class": "rzl-flex-col",
+                    "children": [
+                      { "tag": "h2", "content": "Rzl" },
+                      { "tag": "p", "content": "JS Library" }
+                    ]
+                  },
+                  { "class": "iconify icon:whh:galaxyalt" }
+                ],
+                "events": { "click": "raziel.setHash.bind(raziel,'rzl')" }
+              },
+              {
+                "class": "card link rzl-flex-row",
+                "children": [
+                  {
+                    "class": "rzl-flex-col",
+                    "children": [
+                      { "tag": "h2", "content": "Portfolio" },
+                      { "tag": "p", "content": "Some of my work" }
+                    ]
+                  },
+                  { "class": "iconify icon:jam:folder" }
+                ],
+                "events": {
+                  "click": "raziel.setHash.bind(raziel,'portfolio')"
+                }
+              }
+            ]
+          },
+          {
+            "class": "pair rzl-flex-row",
+            "children": [
+              {
+                "class": "card link rzl-flex-row",
+                "children": [
+                  {
+                    "class": "rzl-flex-col",
+                    "children": [
+                      { "tag": "h2", "content": "About" },
+                      { "tag": "p", "content": "All about me" }
+                    ]
+                  },
+                  { "class": "iconify icon:uil:user-square" }
+                ],
+                "events": { "click": "raziel.setHash.bind(raziel,'about')" }
+              },
+              {
+                "class": "card link rzl-flex-row",
+                "children": [
+                  {
+                    "class": "rzl-flex-col",
+                    "children": [
+                      { "tag": "h2", "content": "Contact" },
+                      { "tag": "p", "content": "Why not get in touch?" }
+                    ]
+                  },
+                  { "class": "iconify icon:jam:messages" }
+                ],
+                "events": { "click": "raziel.setHash.bind(raziel,'contact')" }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

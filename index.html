@@ -57,16 +57,17 @@
 		<header>
 			<div id="menubar" class="container rzl-flex-row">
 				<div class="rzl-flex-row">
-					<a onclick="raziel.navigate('home')">Raziel</a>
+					<a onclick="raziel.setHash('home')">Raziel</a>
 				</div>
 				<nav class="rzl-flex-row">
-					<a onclick="raziel.navigate('rzl')">Rzl</a>
-					<a onclick="raziel.navigate('portfolio')">Portfolio</a>
-					<a onclick="raziel.navigate('about')">About</a>
-					<a onclick="raziel.navigate('contact')">Contact</a>
+					<a onclick="raziel.setHash('rzl')">Rzl</a>
+					<a onclick="raziel.setHash('portfolio')">Portfolio</a>
+					<a onclick="raziel.setHash('about')">About</a>
+					<a onclick="raziel.setHash('contact')">Contact</a>
 				</nav>
 			</div>
 		</header>
+		<div id="loader-view" class="loader lds-ripple"><div></div><div></div></div>
 		<section id="view"></section>
 		<footer>
 			<div class="container rzl-flex-row">

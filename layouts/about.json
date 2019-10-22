@@ -1,0 +1,19 @@
+{
+  "meta": { "name": "about", "domain": "raziel" },
+  "view": {
+    "class": "ui-view container rzl-flex-col",
+    "children": [
+      {
+        "id": "banner",
+        "class": "rzl-flex-col",
+        "children": [
+          { "tag": "h1", "content": "About" },
+          { "tag": "p", "content": "All about me" },
+          { "tag": "p", "content": "<br>Under construction" }
+        ]
+      },
+      { "tag": "hr" },
+      {}
+    ]
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "meta": { "name": "contact", "domain": "raziel" },
+  "view": {
+    "class": "ui-view container rzl-flex-col",
+    "children": [
+      {
+        "id": "banner",
+        "class": "rzl-flex-col",
+        "children": [
+          { "tag": "h1", "content": "Contact" },
+          { "tag": "p", "content": "Why not get in touch?" }
+        ]
+      },
+      { "tag": "hr" },
+      {
+        "id": "methods",
+        "class": "rzl-flex-row",
+        "children": [
+          {
+            "tag": "a",
+            "class": "card rzl-flex-row",
+            "props": {
+              "href": "mailto:info@raziel.dev?Subject=Website%20Enquiry"
+            },
+            "children": [
+              {
+                "class": "rzl-flex-col",
+                "children": [
+                  { "tag": "h2", "content": "Email" },
+                  { "tag": "p", "content": "Email me at info@raziel.dev" }
+                ]
+              },
+              { "class": "iconify icon:ic:outline-email" }
+            ]
+          },
+          {
+            "tag": "a",
+            "props": { "href": "https://gitter.im/raziel2244" },
+            "class": "card rzl-flex-row",
+            "children": [
+              {
+                "class": "rzl-flex-col",
+                "children": [
+                  { "tag": "h2", "content": "Gitter" },
+                  { "tag": "p", "content": "Join my Gitter community" }
+                ]
+              },
+              { "class": "iconify icon:fa-brands:gitter" }
+            ]
+          },
+          {
+            "tag": "a",
+            "props": { "href": "https://t.me/raziel2244" },
+            "class": "card rzl-flex-row",
+            "children": [
+              {
+                "class": "rzl-flex-col",
+                "children": [
+                  { "tag": "h2", "content": "Telegram" },
+                  { "tag": "p", "content": "Message me on Telegram" }
+                ]
+              },
+              { "class": "iconify icon:ei:sc-telegram" }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

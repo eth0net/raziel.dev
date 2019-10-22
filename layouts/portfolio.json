@@ -1,0 +1,32 @@
+{
+  "meta": { "name": "portfolio", "domain": "raziel" },
+  "view": {
+    "class": "ui-view container rzl-flex-col",
+    "children": [
+      {
+        "id": "banner",
+        "class": "rzl-flex-col",
+        "children": [
+          { "tag": "h1", "content": "Portfolio" },
+          { "tag": "p", "content": "Some of my work" }
+        ]
+      },
+      { "tag": "hr" },
+      {
+        "id": "projects",
+        "class": "rzl-flex-row",
+        "children": [
+          {
+            "tag": "a",
+            "class": "card rzl-flex-col",
+            "props": { "href": "https://nordanner.raziel.dev" },
+            "children": [
+              { "tag": "h2", "content": "Nordanner Tools" },
+              { "tag": "img", "props": { "src": "./assets/nordanner.png" } }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -2,6 +2,7 @@ raziel = {
   layouts: new Map(),
   state: {},
 
+  // setup the initial view and service worker
   init: function() {
     console.log("init called");
 
@@ -13,28 +14,29 @@ raziel = {
         .catch(e => console.log("Failed to register service worker"));
     }
 
-    // navigate to target using current hash, if any
+    // render the initial view
     this.render();
 
-    // handle future hash changes, including back button
+    // handle hash changes
     onhashchange = () => this.render();
   },
 
   // navigate to the given target
   render: async function(target = this.parseHash()) {
-    if (target == "") target = "home";
+    if (!target || target == "") target = "home";
 
+    // clear out old content in the div
     rzl.destroyChildren(document.querySelector("#view"));
 
+    // display the loader
     this.showLoader();
 
+    // get the layout
     const layout = await this.loadLayout(target);
-
     if (!layout) return false;
-
+    
+    // update hash and render the layout
     if (this.parseHash != target) this.setHash(target);
-
-    // draw the appropriate interface
     new rzl.UI(layout, { pnode: "view" });
 
     this.hideLoader();
@@ -43,22 +45,26 @@ raziel = {
     return target;
   },
 
+  // parse the layout name from the hash
   parseHash: function() {
     return location.hash.split("/")[1];
   },
 
+  // update the hash using the new layout name
   setHash: function(layoutName) {
     const base = (layoutName === "home") ? "" : layoutName;
     let path = `/${base}`;
     return location.hash = path;
   },
 
+  // store a copy of the layout locally
   cacheLayout: function(name, layout) {
     console.log("caching", name, layout);
     this.layouts.set(name, layout);
     return layout;
   },
 
+  // load layouts in from the server
   loadLayout: async function(target) {
     // check local cache
     if (this.layouts.has(target)) return this.layouts.get(target);
@@ -75,10 +81,12 @@ raziel = {
       });
   },
 
+  // show the loading animation
   showLoader: function() {
     document.querySelector("#loader-view").classList.remove("rzl-hidden");
   },
 
+  // hide the loading animation
   hideLoader: function() {
     document.querySelector("#loader-view").classList.add("rzl-hidden");
   },

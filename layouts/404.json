@@ -1,0 +1,16 @@
+{
+  "meta": { "name": "404", "domain": "raziel" },
+  "view": {
+    "class": "ui-view container rzl-flex-col",
+    "children": [
+      {
+        "id": "banner",
+        "class": "rzl-flex-col",
+        "children": [
+          { "tag": "h1", "content": "Error 404" },
+          { "tag": "p", "content": "Route not found" }
+        ]
+      }
+    ]
+  }
+}

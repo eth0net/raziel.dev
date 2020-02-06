@@ -14,6 +14,7 @@
 		<script src="https://code.iconify.design/1/1.0.3/iconify.min.js"></script>
 
 		<script type="text/javascript" src="inc/rzl/js/core.js"></script>
+		<script type="text/javascript" src="inc/rzl/js/router.js"></script>
 		<script type="text/javascript" src="inc/rzl/js/ui.js"></script>
 
 		<link rel="stylesheet" type="text/css" href="inc/rzl/css/core.css" />
@@ -57,18 +58,18 @@
 		<header>
 			<div id="menubar" class="container rzl-flex-row">
 				<div class="rzl-flex-row">
-					<a onclick="raziel.setHash('home')">Raziel</a>
+					<a onclick="raziel.router.navigate('')">Raziel</a>
 				</div>
 				<nav class="rzl-flex-row">
-					<a onclick="raziel.setHash('rzl')">Rzl</a>
-					<a onclick="raziel.setHash('portfolio')">Portfolio</a>
-					<a onclick="raziel.setHash('about')">About</a>
-					<a onclick="raziel.setHash('contact')">Contact</a>
+					<a onclick="raziel.router.navigate('rzl')">Rzl</a>
+					<a onclick="raziel.router.navigate('portfolio')">Portfolio</a>
+					<a onclick="raziel.router.navigate('about')">About</a>
+					<a onclick="raziel.router.navigate('contact')">Contact</a>
 				</nav>
 			</div>
 		</header>
 		<div id="loader-view" class="loader lds-ripple"><div></div><div></div></div>
-		<section id="view"></section>
+		<router id="view"></router>
 		<footer>
 			<div class="container rzl-flex-row">
 				<div id="license" class="rzl-flex-row">

@@ -1,4 +1,4 @@
-// version v0.0.20
+VERSION = "v0.2.0";
 
 self.addEventListener("install", event => {
   event.waitUntil(
@@ -8,6 +8,7 @@ self.addEventListener("install", event => {
         cache.addAll([
           "inc/rzl/css/core.css",
           "inc/rzl/js/core.js",
+          "inc/rzl/js/router.js",
           "inc/rzl/js/ui.js",
           "index.html",
           "index.css",
@@ -16,7 +17,8 @@ self.addEventListener("install", event => {
           "layouts/contact.json",
           "layouts/home.json",
           "layouts/portfolio.json",
-          "layouts/rzl.json"
+          "layouts/rzl.json",
+          "layouts/404.json"
         ])
       )
   );

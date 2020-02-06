@@ -127,7 +127,7 @@ body > header {
 	margin-top: 4rem;
 }
 
-#view {
+router {
 	flex-grow: 1;
 }
 

@@ -31,7 +31,7 @@
                   },
                   { "class": "iconify icon:whh:galaxyalt" }
                 ],
-                "events": { "click": "raziel.setHash.bind(raziel,'rzl')" }
+                "events": { "click": "()=>raziel.router.navigate('rzl')" }
               },
               {
                 "class": "card link rzl-flex-row",
@@ -46,7 +46,7 @@
                   { "class": "iconify icon:jam:folder" }
                 ],
                 "events": {
-                  "click": "raziel.setHash.bind(raziel,'portfolio')"
+                  "click": "()=>raziel.router.navigate('portfolio')"
                 }
               }
             ]
@@ -66,7 +66,7 @@
                   },
                   { "class": "iconify icon:uil:user-square" }
                 ],
-                "events": { "click": "raziel.setHash.bind(raziel,'about')" }
+                "events": { "click": "()=>raziel.router.navigate('about')" }
               },
               {
                 "class": "card link rzl-flex-row",
@@ -80,7 +80,7 @@
                   },
                   { "class": "iconify icon:jam:messages" }
                 ],
-                "events": { "click": "raziel.setHash.bind(raziel,'contact')" }
+                "events": { "click": "()=>raziel.router.navigate('contact')" }
               }
             ]
           }

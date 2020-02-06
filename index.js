@@ -1,6 +1,12 @@
 raziel = {
-  layouts: new Map(),
-  state: {},
+  routes: [
+    { path: "", layout: "/layouts/home.json", pathMatch: "full" },
+    { path: "rzl", layout: "/layouts/rzl.json" },
+    { path: "portfolio", layout: "/layouts/portfolio.json" },
+    { path: "about", layout: "/layouts/about.json" },
+    { path: "contact", layout: "/layouts/contact.json" },
+    { path: "", layout: "/layouts/404.json" },
+  ],
 
   // setup the initial view and service worker
   init: function() {
@@ -14,71 +20,20 @@ raziel = {
         .catch(e => console.log("Failed to register service worker"));
     }
 
-    // render the initial view
-    this.render();
-
-    // handle hash changes
-    onhashchange = () => this.render();
-  },
-
-  // navigate to the given target
-  render: async function(target = this.parseHash()) {
-    if (!target || target == "") target = "home";
-
-    // clear out old content in the div
-    rzl.destroyChildren(document.querySelector("#view"));
-
-    // display the loader
-    this.showLoader();
-
-    // get the layout
-    const layout = await this.loadLayout(target);
-    if (!layout) return false;
-    
-    // update hash and render the layout
-    if (this.parseHash != target) this.setHash(target);
-    new rzl.UI(layout, { pnode: "view" });
-
-    this.hideLoader();
-
-    // return the new route name
-    return target;
-  },
-
-  // parse the layout name from the hash
-  parseHash: function() {
-    return location.hash.split("/")[1];
-  },
-
-  // update the hash using the new layout name
-  setHash: function(layoutName) {
-    const base = (layoutName === "home") ? "" : layoutName;
-    let path = `/${base}`;
-    return location.hash = path;
-  },
-
-  // store a copy of the layout locally
-  cacheLayout: function(name, layout) {
-    console.log("caching", name, layout);
-    this.layouts.set(name, layout);
-    return layout;
-  },
-
-  // load layouts in from the server
-  loadLayout: async function(target) {
-    // check local cache
-    if (this.layouts.has(target)) return this.layouts.get(target);
-
-    // else load from server
-    return fetch(`layouts/${target}.json`)
-      .then(checkStatus)
-      .then(parseJSON)
-      .then(data => this.cacheLayout(target, data))
-      .catch(error => {
-        console.error(`Failed to get layout: ${target}`);
-        console.error(error);
-        return false;
-      });
+    this.router = new rzl.Router({
+      hooks: [
+        [
+          "willNavigate",
+          () => {
+            rzl.destroyChildren(document.querySelector("#view"));
+            this.showLoader();
+          }
+        ],
+        ["didNavigate", () => this.hideLoader()]
+      ],
+      outlet: document.getElementById("view"),
+      routes: this.routes
+    });
   },
 
   // show the loading animation
@@ -89,19 +44,5 @@ raziel = {
   // hide the loading animation
   hideLoader: function() {
     document.querySelector("#loader-view").classList.add("rzl-hidden");
-  },
-};
-
-function checkStatus(response) {
-  if (response.status >= 200 && response.status < 300) {
-    return response;
-  } else {
-    var error = new Error(response.statusText);
-    error.response = response;
-    throw error;
   }
-}
-
-function parseJSON(response) {
-  return response.json();
-}
+};

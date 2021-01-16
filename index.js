@@ -14,6 +14,8 @@ raziel = {
         .catch(e => console.log("Failed to register service worker"));
     }
 
+    document.getElementById("copyright-date").textContent = new Date().getFullYear();
+
     // render the initial view
     this.render();
 
